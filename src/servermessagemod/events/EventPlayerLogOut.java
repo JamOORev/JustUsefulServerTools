@@ -5,13 +5,13 @@ import net.minecraft.util.ChatComponentText;
 import servermessagemod.ConfigHandler;
 import servermessagemod.TextHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
 
-public class EventPlayerLogIn {
+public class EventPlayerLogOut {
 	@SubscribeEvent
-	public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
+	public void onPlayerLogOut(PlayerLoggedOutEvent event) {
 		EntityPlayer player = event.player;
-		String message = ConfigHandler.logInMessage;
+		String message = ConfigHandler.logOutMessage;
 		switch(ConfigHandler.colour) {
 		case "black": message = TextHelper.BLACK + message; break;
 		case "blue": message = TextHelper.BLUE + message; break;
@@ -32,6 +32,6 @@ public class EventPlayerLogIn {
 		default: break;
 		}
 		
-		player.addChatComponentMessage(new ChatComponentText(message + player.getDisplayName()));
+		server.addChatComponentMessage(new ChatComponentText(message + player.getDisplayName()));
 	}
 }

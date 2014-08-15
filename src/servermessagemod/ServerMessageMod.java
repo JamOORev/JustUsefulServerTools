@@ -1,8 +1,8 @@
 package servermessagemod;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import servermessagemod.events.EventPlayerLogIn;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -18,7 +18,7 @@ public class ServerMessageMod {
 		config = new Configuration(event.getSuggestedConfigurationFile());
 		ConfigHandler.configOptions(config);
 		
-		MinecraftForge.EVENT_BUS.register(new EventPlayerLogIn());
+		FMLCommonHandler.instance().bus().register(new EventPlayerLogIn());
 	}
 	
 	@EventHandler

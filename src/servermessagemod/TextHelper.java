@@ -18,13 +18,4 @@ public class TextHelper {
 	public static final String PINK = (char) 167 + "d";
 	public static final String YELLOW = (char) 167 + "e";
 	public static final String WHITE = (char) 167 + "f";
-
-	/** Text formatting **/
-
-	public static final String OBFUSCATED = (char) 167 + "k";
-	public static final String BOLD = (char) 167 + "l";
-	public static final String STRIKETHROUGH = (char) 167 + "m";
-	public static final String UNDERLINE = (char) 167 + "n";
-	public static final String ITALIC = (char) 167 + "o";
-	public static final String END = (char) 167 + "r";
 }
