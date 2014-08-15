@@ -2,11 +2,10 @@ package servermessagemod;
 
 import net.minecraftforge.common.config.Configuration;
 import servermessagemod.events.EventPlayerLogIn;
+import servermessagemod.events.EventPlayerLogOut;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(name = "Server Message Mod", modid = "servermessagemod", version = "1.0")
@@ -19,15 +18,6 @@ public class ServerMessageMod {
 		ConfigHandler.configOptions(config);
 		
 		FMLCommonHandler.instance().bus().register(new EventPlayerLogIn());
-	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		
-	}
-	
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		
+		FMLCommonHandler.instance().bus().register(new EventPlayerLogOut());
 	}
 }

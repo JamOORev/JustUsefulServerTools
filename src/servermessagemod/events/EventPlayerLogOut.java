@@ -1,6 +1,7 @@
 package servermessagemod.events;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import servermessagemod.ConfigHandler;
 import servermessagemod.TextHelper;
@@ -32,6 +33,6 @@ public class EventPlayerLogOut {
 		default: break;
 		}
 		
-		server.addChatComponentMessage(new ChatComponentText(message + player.getDisplayName()));
+		MinecraftServer.getServer().addChatMessage(new ChatComponentText(message + player.getDisplayName()));
 	}
 }
