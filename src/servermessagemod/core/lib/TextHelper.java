@@ -1,4 +1,4 @@
-package servermessagemod;
+package servermessagemod.core.lib;
 
 public class TextHelper {
 	/** Color Coding **/

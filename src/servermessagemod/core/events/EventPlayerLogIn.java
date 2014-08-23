@@ -1,18 +1,17 @@
-package servermessagemod.events;
+package servermessagemod.core.events;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
-import servermessagemod.ConfigHandler;
-import servermessagemod.TextHelper;
+import servermessagemod.core.lib.ConfigHandler;
+import servermessagemod.core.lib.TextHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedOutEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 
-public class EventPlayerLogOut {
+public class EventPlayerLogIn {
 	@SubscribeEvent
-	public void onPlayerLogOut(PlayerLoggedOutEvent event) {
+	public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
 		EntityPlayer player = event.player;
-		String message = ConfigHandler.logOutMessage;
+		String message = ConfigHandler.logInMessage;
 		switch(ConfigHandler.colour) {
 		case "black": message = TextHelper.BLACK + message; break;
 		case "blue": message = TextHelper.BLUE + message; break;
@@ -33,6 +32,6 @@ public class EventPlayerLogOut {
 		default: break;
 		}
 		
-		MinecraftServer.getServer().addChatMessage(new ChatComponentText(message + player.getDisplayName()));
+		player.addChatComponentMessage(new ChatComponentText(message + player.getDisplayName()));
 	}
 }

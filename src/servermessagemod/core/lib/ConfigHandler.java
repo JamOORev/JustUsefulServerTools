@@ -1,4 +1,4 @@
-package servermessagemod;
+package servermessagemod.core.lib;
 
 import net.minecraftforge.common.config.Configuration;
 
