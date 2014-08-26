@@ -1,6 +1,7 @@
 package servermessagemod;
 
 import net.minecraftforge.common.config.Configuration;
+import servermessagemod.core.command.CommandPermissionsSet;
 import servermessagemod.core.command.CommandTPA;
 import servermessagemod.core.command.CommandTPAReply;
 import servermessagemod.core.events.EventPlayerLogIn;
@@ -17,6 +18,8 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 public class ServerMessageMod {
 	Configuration config;
 	
+	public static String[][] permissions = {{"Guests"}, {"Members"}, {"Operators"}, {"Admins"}};
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		config = new Configuration(event.getSuggestedConfigurationFile());
@@ -30,5 +33,6 @@ public class ServerMessageMod {
     public void registerCommands(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandTPA());
         event.registerServerCommand(new CommandTPAReply());;
+        event.registerServerCommand(new CommandPermissionsSet());
     }
 }
