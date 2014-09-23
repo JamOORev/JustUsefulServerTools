@@ -32,7 +32,7 @@ public class ServerMessageMod {
 	@EventHandler
     public void registerCommands(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandTPA());
-        event.registerServerCommand(new CommandTPAReply());;
+        event.registerServerCommand(new CommandTPAReply());
         event.registerServerCommand(new CommandPermissionsSet());
     }
 }
